@@ -1,0 +1,20 @@
+(type bare_netif_t)
+(roletype object_r bare_netif_t)
+
+(type other_netif_t)
+(roletype object_r other_netif_t)
+
+(type bare_packet_t)
+(roletype object_r bare_packet_t)
+
+(allow unconfined_t bare_packet_t (packet (relabelto)))
+
+(type bare_packet_a_t)
+(roletype object_r bare_packet_a_t)
+
+(allow unconfined_t bare_packet_a_t (packet (relabelto)))
+
+(type bare_packet_b_t)
+(roletype object_r bare_packet_b_t)
+
+(allow unconfined_t bare_packet_b_t (packet (relabelto)))

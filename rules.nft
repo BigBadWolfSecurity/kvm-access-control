@@ -1,0 +1,46 @@
+#! /usr/sbin/nft -f
+
+flush ruleset
+
+table bridge filter {
+	secmark bareatag { "system_u:object_r:bare_packet_a_t:s0" }
+	secmark barebtag { "system_u:object_r:bare_packet_b_t:s0" }
+
+	chain LABEL {
+		type filter hook forward priority filter;
+
+		#ether daddr 52:54:00:ac:a2:b8 meta secmark set "bareatag";
+		#ether saddr 52:54:00:ac:a2:b8 meta secmark set "bareatag";
+		#ether daddr 52:54:00:2d:ef:44 meta secmark set "barebtag";
+		#ether saddr 52:54:00:2d:ef:44 meta secmark set "barebtag";
+
+		# veth
+		#ether daddr 3a:09:f6:89:55:8d meta secmark set "bareatag";
+		#ether saddr 3a:09:f6:89:55:8d meta secmark set "bareatag";
+
+		iif fedora2testbr0 meta secmark set "bareatag";
+		oif fedora2testbr0 meta secmark set "bareatag";
+
+		iif testb2testbr0 meta secmark set "barebtag";
+		oif testb2testbr0 meta secmark set "barebtag";
+
+		meta nftrace set 1;
+
+		#ip daddr 192.168.5.1 meta secmark set "barebtag";
+	}
+}
+
+table inet filter {
+	secmark bareatag { "system_u:object_r:bare_packet_a_t:s0" }
+	secmark barebtag { "system_u:object_r:bare_packet_b_t:s0" }
+
+	chain LABELINET {
+		type filter hook prerouting priority filter;
+
+		iif fedora2testbr0 meta secmark set "bareatag";
+		oif fedora2testbr0 meta secmark set "bareatag";
+
+		iif testb2testbr0 meta secmark set "barebtag";
+		oif testb2testbr0 meta secmark set "barebtag";
+}
+}
