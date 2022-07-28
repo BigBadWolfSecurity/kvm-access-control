@@ -1,5 +1,5 @@
-1. `sudo semodule -i module.cil'
-2. `sudo ./virtual-networking.sh'
+1. `sudo semodule -i module.cil`
+2. `sudo ./virtual-networking.sh`
 3. `sudo ./iptables.sh`
 
 In virt-manager, my config looks like this, which you need to edit the networking xml directly.
