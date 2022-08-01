@@ -18,3 +18,6 @@
 (roletype object_r bare_packet_b_t)
 
 (allow unconfined_t bare_packet_b_t (packet (relabelto)))
+
+(type left_vm_t)
+(type right_vm_t)
