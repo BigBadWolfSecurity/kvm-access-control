@@ -9,12 +9,15 @@
 
 (allow unconfined_t bare_packet_t (packet (relabelto)))
 
-(type bare_packet_a_t)
-(roletype object_r bare_packet_a_t)
+(type left_packet_t)
+(roletype object_r left_packet_t)
 
-(allow unconfined_t bare_packet_a_t (packet (relabelto)))
+(allow unconfined_t left_packet_t (packet (relabelto)))
 
-(type bare_packet_b_t)
-(roletype object_r bare_packet_b_t)
+(type right_packet_t)
+(roletype object_r right_packet_t)
 
-(allow unconfined_t bare_packet_b_t (packet (relabelto)))
+(allow unconfined_t right_packet_t (packet (relabelto)))
+
+(type left_vm_t)
+(type right_vm_t)
