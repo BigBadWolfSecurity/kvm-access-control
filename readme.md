@@ -16,6 +16,7 @@ In virt-manager, my config looks like this, which you need to edit the networkin
 
 This will generate denials like the following:
 
+```
 #============= left_vm_t ==============
 allow left_vm_t bare_netif_t:netif ingress;
 allow left_vm_t left_packet_t:packet forward_in;
@@ -25,4 +26,4 @@ allow left_vm_t node_t:node recvfrom;
 allow right_vm_t bare_netif_t:netif ingress;
 allow right_vm_t node_t:node recvfrom;
 allow right_vm_t right_packet_t:packet forward_in;
-
+```
