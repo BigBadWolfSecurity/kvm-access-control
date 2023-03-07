@@ -1,13 +1,5 @@
-(type bare_netif_t)
-(roletype object_r bare_netif_t)
-
-(type other_netif_t)
-(roletype object_r other_netif_t)
-
-(type bare_packet_t)
-(roletype object_r bare_packet_t)
-
-(allow unconfined_t bare_packet_t (packet (relabelto)))
+(type testbr_netif_t)
+(roletype object_r testbr_netif_t)
 
 (type left_packet_t)
 (roletype object_r left_packet_t)
@@ -20,4 +12,7 @@
 (allow unconfined_t right_packet_t (packet (relabelto)))
 
 (type left_vm_t)
+(roletype object_r left_vm_t)
+
 (type right_vm_t)
+(roletype object_r right_vm_t)

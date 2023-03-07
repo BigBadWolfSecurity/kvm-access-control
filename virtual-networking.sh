@@ -6,6 +6,9 @@ modprobe br_netfilter
 
 # https://wiki.archlinux.org/title/network_bridge
 
+# This used to put things into a namespace - there are problems using netlabelctl in a namespace however, so this
+# version is not in a namespace. You can still see the old code however.
+
 ip link del left
 ip link del right
 ip link del testbr0
